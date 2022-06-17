@@ -1,11 +1,75 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace InterfaceExercise
 {
     class Program
     {
+        
+
         static void Main(string[] args)
+
         {
+
+            var truck = new Truck()
+            {
+                Name = "Ford F-150",
+                Brand = "BrandX",
+                Wheels = 4,
+                HeadLights = 2,
+                Doors = 2,
+                WindShieldWipers = true,
+                TruckBed = "yes",
+                Large = "yes"
+
+            };
+            var car = new Car()
+            {
+                Name = "Toyota",
+                Brand = "Best brand",
+                Wheels = 4,
+                HeadLights = 2,
+                Doors = 4,
+                WindShieldWipers = true,
+                HasTrunk = true,
+                TailLights = 2
+            };
+            var suv = new SUV()
+            {
+                Name = "RAV4",
+                Brand = "Toyota",
+                Wheels = 4,
+                HeadLights = 2,
+                Doors = 4,
+                WindShieldWipers = true,
+                SunRoof = true,
+                CargoHold = true
+
+
+            };
+
+            var vehicles = new List<IVehicle>() { car, truck, suv };
+
+            vehicles.Add(truck);
+            vehicles.Add(car);
+            vehicles.Add(suv);
+
+
+            
+
+            foreach(var vehicle in vehicles)
+            {
+                Console.WriteLine($"My {vehicle.Name} {vehicle.Brand}  has {vehicle.Wheels} wheels and {vehicle.HeadLights} headlights. It has {vehicle.Doors}  doors and it's {vehicle.WindShieldWipers} to have windshield wipers!  ");
+
+
+
+
+              
+
+            }
+
+            
+
             //TODO Be sure to follow BEST PRACTICES when creating classes and interfaces
 
             //Create 2 Interfaces called IVehicle & ICompany
